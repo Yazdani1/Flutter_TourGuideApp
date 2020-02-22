@@ -135,12 +135,14 @@ class _HomeState extends State<Home> {
                 child: new Text("Cancel")
             ),
             actions: <Widget>[
+              
               new CupertinoActionSheetAction(
                 onPressed: () {},
                 child: new Text("First Page",
                   style: TextStyle(fontSize: 22.0, color: Colors.orange),
                 ),
               ),
+
               new CupertinoActionSheetAction(
                   onPressed: () {},
                   child: new Text("Second Page")
