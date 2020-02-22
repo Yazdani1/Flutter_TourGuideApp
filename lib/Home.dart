@@ -101,8 +101,6 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                     )
-
-
                                   ],
                                 ),
                               )
@@ -117,10 +115,8 @@ class _HomeState extends State<Home> {
             }
           }
       ),
-
     );
   }
-
   shoCuportionDialog(BuildContext context) {
     showCupertinoModalPopup(
         context: context,
@@ -135,7 +131,7 @@ class _HomeState extends State<Home> {
                 child: new Text("Cancel")
             ),
             actions: <Widget>[
-              
+
               new CupertinoActionSheetAction(
                 onPressed: () {},
                 child: new Text("First Page",
