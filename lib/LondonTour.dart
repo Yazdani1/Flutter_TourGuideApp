@@ -420,9 +420,7 @@ class _CityDetailsState extends State<CityDetails> {
                                 ),
                               ),
                             ),
-
                             SizedBox(width: 10.0,),
-                            
                             Expanded(
                               flex: 2,
                               child: Text(ourData.data['title'],
