@@ -22,10 +22,8 @@ class _HomeState extends State<Home> {
 
   Future gettPlaces() async {
     var firestore = Firestore.instance;
-
     QuerySnapshot snapshot = await firestore.collection("country_name_place")
         .getDocuments();
-
     return snapshot.documents;
   }
 
@@ -35,6 +33,7 @@ class _HomeState extends State<Home> {
       gettPlaces();
     });
   }
+
 //  Future getAllpost() async {
 //    var firestore = Firestore.instance;
 //    QuerySnapshot snapshot = await firestore.collection("item").getDocuments();
@@ -51,10 +50,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-
-
       body: SingleChildScrollView(
-
         child: Column(
           children: <Widget>[
             //First Container
@@ -97,65 +93,22 @@ class _HomeState extends State<Home> {
             //Second Container
 
             Container(
-              height: 200.0,
-              margin: EdgeInsets.only(top:10.0),
-              child: FutureBuilder(
-                  future: gettPlaces(),
-                  builder: (BuildContext context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else {
-                      return RefreshIndicator(
-                        onRefresh: getRefresh,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                            itemCount: snapshot.data.length,
-                            itemBuilder: (BuildContext context, index) {
-                              var ourData = snapshot.data[index];
-                              return Container(
-                                margin: EdgeInsets.only(left: 10.0),
+              height: 250.0,
+              margin: EdgeInsets.only(top: 10.0),
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  InkWell(
+                      child: city_tour(context, img7, "London"),
+                    onTap: (){
+                        Navigator.of(context).push(_createRoute(context));
+                    },
+                  ),
+                  city_tour(context, img6, "Paris"),
+                  city_tour(context, img5, "Italy"),
+                  city_tour(context, img3, "Vietnam"),
 
-                                child: Stack(
-                                  children: <Widget>[
-                                    InkWell(
-                                      onTap: (){
-                                        Navigator.of(context).push(_createRoute());
-                                      },
-                                      child: Container(
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(
-                                              10.0),
-                                          child: Image.network(ourData.data['img'],
-                                            height: 200.0,
-                                            width: 300.0,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-
-                                    Positioned(
-                                      top: 160.0,
-                                      left: 20.0,
-                                      bottom: 10.0,
-                                      child: Text(ourData.data['cityname'],
-                                        style: TextStyle(
-                                            fontSize: 30.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              );
-                            }
-                        ),
-                      );
-                    }
-                  }
+                ],
               ),
             ),
           ],
@@ -253,6 +206,7 @@ class _HomeState extends State<Home> {
 //      ),
     );
   }
+
 //  shoCuportionDialog(BuildContext context) {
 //    showCupertinoModalPopup(
 //        context: context,
@@ -282,7 +236,7 @@ class _HomeState extends State<Home> {
 //        }
 //    );
 //  }
-  Route _createRoute() {
+  Route _createRoute(BuildContext context) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => CityDetails(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -301,6 +255,46 @@ class _HomeState extends State<Home> {
       },
     );
   }
+
+  Widget city_tour(BuildContext context,String img,String name) {
+    return Container(
+      margin: EdgeInsets.only(left: 10.0),
+      child: Stack(
+        children: <Widget>[
+          InkWell(
+            onTap: () {},
+            child: Container(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(
+                    10.0),
+                child: Image.network(img,
+                  height: 200.0,
+                  width: 300.0,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+
+          Positioned(
+            top: 160.0,
+            left: 20.0,
+            bottom: 10.0,
+            child: Text(name,
+              style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white
+              ),
+            ),
+          )
+
+
+        ],
+      ),
+    );
+  }
+
 }
 
 
