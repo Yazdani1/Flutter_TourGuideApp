@@ -35,8 +35,6 @@ class _HomeState extends State<Home> {
       gettPlaces();
     });
   }
-
-
 //  Future getAllpost() async {
 //    var firestore = Firestore.instance;
 //    QuerySnapshot snapshot = await firestore.collection("item").getDocuments();
@@ -118,7 +116,7 @@ class _HomeState extends State<Home> {
                               var ourData = snapshot.data[index];
                               return Container(
                                 margin: EdgeInsets.only(left: 10.0),
-                                
+
                                 child: Stack(
                                   children: <Widget>[
                                     InkWell(
