@@ -221,7 +221,6 @@ class _CityDetailsState extends State<CityDetails> {
                   //end Third container must see container
 
                   Container(
-
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -234,6 +233,7 @@ class _CityDetailsState extends State<CityDetails> {
                               )
                           ),
                         ),
+
                         Container(
                           height: MediaQuery
                               .of(context)
