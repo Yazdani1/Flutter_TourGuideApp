@@ -162,7 +162,6 @@ class _HomeState extends State<Home> {
 
           ],
         ),
-
       ),
 
 //      appBar: AppBar(
@@ -294,7 +293,6 @@ class _HomeState extends State<Home> {
 //        var curve = Curves.ease;
 
         //var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
         return SlideTransition(
           position: Tween<Offset>(
             begin: const Offset(-1, 0),
@@ -305,7 +303,6 @@ class _HomeState extends State<Home> {
       },
     );
   }
-
 }
 
 
