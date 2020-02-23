@@ -219,7 +219,6 @@ class _CityDetailsState extends State<CityDetails> {
                     ),
                   ),
                   //end Third container must see container
-
                   Container(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
