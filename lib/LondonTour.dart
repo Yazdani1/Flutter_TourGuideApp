@@ -242,12 +242,9 @@ class _CityDetailsState extends State<CityDetails> {
                           margin: EdgeInsets.all(10.0),
                           child: must_see(context),
                         )
-
                       ],
                     ),
                   ),
-
-
                 ],
               ),
             ),
