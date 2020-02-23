@@ -118,6 +118,7 @@ class _HomeState extends State<Home> {
                               var ourData = snapshot.data[index];
                               return Container(
                                 margin: EdgeInsets.only(left: 10.0),
+                                
                                 child: Stack(
                                   children: <Widget>[
                                     InkWell(
@@ -136,6 +137,7 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                     ),
+
                                     Positioned(
                                       top: 160.0,
                                       left: 20.0,
@@ -158,8 +160,6 @@ class _HomeState extends State<Home> {
                   }
               ),
             ),
-
-
           ],
         ),
       ),
