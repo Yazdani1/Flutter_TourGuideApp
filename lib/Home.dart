@@ -34,6 +34,14 @@ class _HomeState extends State<Home> {
     });
   }
 
+  Future topPlaces() async {
+    var firestore = Firestore.instance;
+    QuerySnapshot snapshot = await firestore.collection("top_ten_places")
+        .getDocuments();
+    return snapshot.documents;
+  }
+
+
 //  Future getAllpost() async {
 //    var firestore = Firestore.instance;
 //    QuerySnapshot snapshot = await firestore.collection("item").getDocuments();
@@ -99,9 +107,9 @@ class _HomeState extends State<Home> {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   InkWell(
-                      child: city_tour(context, img7, "London"),
-                    onTap: (){
-                        Navigator.of(context).push(_createRoute(context));
+                    child: city_tour(context, img7, "London"),
+                    onTap: () {
+                      Navigator.of(context).push(_createRoute(context));
                     },
                   ),
                   city_tour(context, img6, "Paris"),
@@ -261,7 +269,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget city_tour(BuildContext context,String img,String name) {
+  Widget city_tour(BuildContext context, String img, String name) {
     return Container(
       margin: EdgeInsets.only(left: 10.0),
       child: Stack(
@@ -299,6 +307,34 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+
+  Widget topten_places() {
+    return Container(
+      margin: EdgeInsets.all(10.0),
+      child: FutureBuilder(
+          future: topPlaces(),
+          builder: (BuildContext context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return RefreshIndicator(
+                onRefresh: getRefresh,
+                child: ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, index) {
+                      
+                    }
+                ),
+              );
+            }
+          }
+      ),
+    );
+  }
+
 
 }
 
