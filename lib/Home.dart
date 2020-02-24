@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'LondonTour.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -41,8 +42,9 @@ class _HomeState extends State<Home> {
     return snapshot.documents;
   }
 
-  List<MaterialColor>_color=[Colors.orange,Colors.blue,Colors.purple,Colors
-      .pink,Colors.amber,Colors.red,Colors.green,Colors.brown];
+  List<MaterialColor>_color = [Colors.orange, Colors.blue, Colors.purple, Colors
+      .pink, Colors.amber, Colors.red, Colors.green, Colors.brown
+  ];
 
   MaterialColor color;
 
@@ -321,6 +323,7 @@ class _HomeState extends State<Home> {
     );
   }
 
+  PanelController _pc = new PanelController();
 
   Widget topten_places(BuildContext context) {
     return Container(
@@ -341,7 +344,7 @@ class _HomeState extends State<Home> {
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, index) {
                       var ourData = snapshot.data[index];
-                      color=_color[index % _color.length];
+                      color = _color[index % _color.length];
                       return Container(
                         width: MediaQuery
                             .of(context)
@@ -351,7 +354,7 @@ class _HomeState extends State<Home> {
                         child: Card(
                           elevation: 10.0,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0)
+                              borderRadius: BorderRadius.circular(20.0)
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -380,16 +383,22 @@ class _HomeState extends State<Home> {
 
                                           Container(
                                             child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment
+                                                  .start,
                                               children: <Widget>[
 
                                                 Container(
-                                                  width: MediaQuery.of(context).size.width/1.5,
-                                                  child: Text(ourData.data['title'],
+                                                  width: MediaQuery
+                                                      .of(context)
+                                                      .size
+                                                      .width / 1.5,
+                                                  child: Text(
+                                                    ourData.data['title'],
                                                     maxLines: 1,
                                                     style: TextStyle(
                                                         fontSize: 20.0,
-                                                        fontWeight: FontWeight.bold
+                                                        fontWeight: FontWeight
+                                                            .bold
                                                     ),
                                                   ),
                                                 ),
@@ -412,9 +421,19 @@ class _HomeState extends State<Home> {
 
                                     Container(
                                       padding: EdgeInsets.all(10.0),
-                                      child: Icon(Icons.more_horiz,
-                                        size: 30.0,
-                                        color: Colors.black,
+                                      child: InkWell(
+                                        onTap: () {
+                                          mainBottom(context, ourData.data['title'],
+                                              ourData.data['days'],
+                                              ourData.data['img'],
+                                              ourData.data['des'],
+
+                                          );
+                                        },
+                                        child: Icon(Icons.more_horiz,
+                                          size: 30.0,
+                                          color: Colors.black,
+                                        ),
                                       ),
                                     )
 
@@ -430,7 +449,10 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(20.0),
                                   child: Image.network(ourData.data['img'],
                                     height: 250.0,
-                                    width: MediaQuery.of(context).size.width,
+                                    width: MediaQuery
+                                        .of(context)
+                                        .size
+                                        .width,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -461,6 +483,143 @@ class _HomeState extends State<Home> {
     );
   }
 
+  mainBottom(BuildContext context, String title, String days, String img,
+      String des) {
+
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+
+          return Container(
+            height: 600.0,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15.0),
+                    topRight: Radius.circular(15.0)
+                ),
+            color: Theme.of(context).canvasColor
+            ),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Container(
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
+                margin: EdgeInsets.only(top: 10.0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15.0),
+                        topRight: Radius.circular(15.0)
+                    )
+                ),
+                child: Card(
+                  elevation: 10.0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0)
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+
+                      Container(
+                        padding: EdgeInsets.all(10.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment
+                              .spaceBetween,
+                          children: <Widget>[
+
+                            Container(
+                              child: Row(
+                                children: <Widget>[
+
+                                  Container(
+                                    child: CircleAvatar(
+                                      child: Text(
+                                          title[0]),
+                                      foregroundColor: Colors.white,
+                                      backgroundColor: color,
+                                    ),
+                                  ),
+                                  SizedBox(width: 6.0,),
+
+                                  Container(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start,
+                                      children: <Widget>[
+
+                                        Container(
+                                          width: MediaQuery
+                                              .of(context)
+                                              .size
+                                              .width / 1.5,
+                                          child: Text(
+                                            title,
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight
+                                                    .bold
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(height: 5.0,),
+                                        Text(days,
+                                          style: TextStyle(
+                                              fontSize: 20.0,
+                                              color: Colors.deepOrange
+                                          ),
+                                        )
+
+                                      ],
+                                    ),
+                                  )
+
+
+                                ],
+                              ),
+                            ),
+
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(height: 5.0,),
+
+                      Container(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Image.network(img,
+                            height: 250.0,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 6.0,),
+
+                      Container(
+                        padding: EdgeInsets.all(10.0),
+                        child: Text(des,
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.black
+                          ),
+                        ),
+                      ),
+
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
+    );
+  }
 
 }
 
