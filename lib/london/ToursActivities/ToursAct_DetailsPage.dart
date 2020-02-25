@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 
 
 class ToursActivitiesDetails extends StatefulWidget {
@@ -86,7 +87,7 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
                             child: InkWell(
                                 child: Icon(Icons.more_horiz),
                               onTap: (){
-                                  
+                                  shoCuportionDialog(context);
                               },
                             ),
                           )
@@ -118,6 +119,44 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
 
     );
   }
+
+  shoCuportionDialog(BuildContext context){
+
+    showCupertinoModalPopup(
+        context: context,
+        builder: (context){
+
+          return CupertinoActionSheet(
+            cancelButton: new CupertinoActionSheetAction(
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+                child: new Text("Cancel")
+            ),
+            actions: <Widget>[
+
+              new CupertinoActionSheetAction(
+                  onPressed: (){},
+                  child: new Text("Share",
+                    style: TextStyle(fontSize: 22.0,color: Colors.purple),
+                  )
+              ),
+              new CupertinoActionSheetAction(
+                  onPressed: (){},
+                  child: new Text("Book a seat",
+                    style: TextStyle(fontSize: 22.0,color: Colors.purple),
+                  )
+              ),
+
+
+            ],
+          );
+
+        }
+    );
+
+  }
+
 }
 
 

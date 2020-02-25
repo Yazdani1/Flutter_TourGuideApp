@@ -482,7 +482,7 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-
+//bottom sheet
   mainBottom(BuildContext context, String title, String days, String img,
       String des) {
 
