@@ -40,26 +40,77 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
       ), //end silver app bar widget here
 
       SliverFillRemaining(
-        child: Container(
-          margin: EdgeInsets.all(10.0),
-          child: Card(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
+        child: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.all(5.0),
+            child: Card(
+              elevation: 10.0,
+              child: Container(
+                padding: EdgeInsets.all(10.0),
+                child: Column(
+                  children: <Widget>[
 
-                Container(
-                  
-                ),//end first row data
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
 
-                Container(
+                          Container(
+                            child: Row(
+                              children: <Widget>[
 
-                )
+                                CircleAvatar(
+                                  child: Text(widget.snapshot.data['title'][0],
+                                  ),
+                                  backgroundColor: Colors.deepOrange,
+                                ),
 
-              ],
+                                SizedBox(width: 6.0,),
+
+                                Container(
+                                  width: MediaQuery.of(context).size.width/2,
+                                  child: Text(widget.snapshot.data['title'],
+                                    style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                )
+
+
+                              ],
+                            ),
+                          ),//end first row data
+
+                          Container(
+                            child: InkWell(
+                                child: Icon(Icons.more_horiz),
+                              onTap: (){
+                                  
+                              },
+                            ),
+                          )
+
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 5.0,),
+
+                    Container(
+                      padding: EdgeInsets.all(10.0),
+                      child: Text(widget.snapshot.data['des']),
+                    )
+
+
+
+                  ],
+                ),
+              ),
             ),
           ),
         ),
-      );
+      )
 
       ],
     )
