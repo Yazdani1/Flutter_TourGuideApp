@@ -43,7 +43,20 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
         child: Container(
           margin: EdgeInsets.all(10.0),
           child: Card(
-            
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+
+                Container(
+                  
+                ),//end first row data
+
+                Container(
+
+                )
+
+              ],
+            ),
           ),
         ),
       );
