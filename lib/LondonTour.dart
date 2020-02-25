@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'Home.dart';
+import 'package:flutter_tourapp/london/ToursActivities/ToursAct_DetailsPage.dart';
 
 class CityDetails extends StatefulWidget {
 
@@ -274,6 +275,26 @@ class _CityDetailsState extends State<CityDetails> {
     );
   }
 
+  Route _gettoursactivities(BuildContext context, DocumentSnapshot snap) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => ToursActivitiesDetails(snap),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+//        var begin = Offset(0.0, 1.0);
+//        var end = Offset.zero;
+//        var curve = Curves.ease;
+
+        //var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(-1, 0),
+            end: Offset.zero,
+          ).animate(animation),
+          child: child,
+        );
+      },
+    );
+  }
+
   Widget getttours(BuildContext context) {
     return Container(
       child: FutureBuilder(
@@ -345,7 +366,7 @@ class _CityDetailsState extends State<CityDetails> {
                                               Padding(
                                                 padding: const EdgeInsets.all(
                                                     8.0),
-                                                child: Text(ourData.data['des'],
+                                                child: Text(ourData.data['days'],
                                                   maxLines: 1,
                                                   style: TextStyle(
                                                       fontSize: 20.0,
@@ -356,9 +377,14 @@ class _CityDetailsState extends State<CityDetails> {
                                               Container(
                                                 margin: EdgeInsets.only(
                                                     right: 20.0),
-                                                child: Icon(Icons.arrow_forward,
-                                                  size: 30.0,
-                                                  color: Colors.amber,
+                                                child: InkWell(
+                                                  onTap: (){
+                                                    Navigator.of(context).push(_gettoursactivities(context, ourData));
+                                                  },
+                                                  child: Icon(Icons.arrow_forward,
+                                                    size: 30.0,
+                                                    color: Colors.amber,
+                                                  ),
                                                 ),
                                               )
                                             ],
