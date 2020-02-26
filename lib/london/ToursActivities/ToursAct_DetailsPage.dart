@@ -18,10 +18,8 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-
       body: CustomScrollView(
         slivers: <Widget>[
-
         SliverAppBar(
         expandedHeight: 250.0,
         floating: false,
@@ -39,7 +37,6 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
           ),
         ),
       ), //end silver app bar widget here
-
       SliverFillRemaining(
         child: SingleChildScrollView(
           child: Container(
