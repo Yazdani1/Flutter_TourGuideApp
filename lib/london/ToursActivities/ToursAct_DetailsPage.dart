@@ -91,7 +91,6 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
                       padding: EdgeInsets.all(10.0),
                       child: Text(widget.snapshot.data['des']),
                     )
-                    
                   ],
                 ),
               ),
@@ -99,7 +98,6 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
           ),
         ),
       )
-
       ],
     )
     ,
