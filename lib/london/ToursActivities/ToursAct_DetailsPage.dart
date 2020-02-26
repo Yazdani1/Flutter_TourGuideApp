@@ -27,7 +27,6 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
         backgroundColor: Colors.deepOrange,
         flexibleSpace: FlexibleSpaceBar(
           title: Text(widget.snapshot.data['days']+" Trip"),
-
           background: Image.network(widget.snapshot.data['img'],
             width: MediaQuery
                 .of(context)
