@@ -154,7 +154,7 @@ class _LondonEatState extends State<LondonEat> {
                                                             ],
                                                           ),
                                                         ),
-                                                        
+
                                                         SizedBox(height: 6.0,),
                                                         Container(
                                                           padding: EdgeInsets
@@ -219,7 +219,6 @@ class _LondonEatState extends State<LondonEat> {
                                                                   ],
                                                                 ),
                                                               ),
-
                                                               Expanded(
                                                                 flex: 1,
                                                                 child: Row(
@@ -238,19 +237,13 @@ class _LondonEatState extends State<LondonEat> {
                                                                   ],
                                                                 ),
                                                               ),
-
-
                                                             ],
                                                           ),
                                                         )
-
-
                                                       ],
                                                     ),
                                                   ),
                                                 ),
-
-
                                               ],
                                             ),
 
