@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 
 class ToursActivitiesDetails extends StatefulWidget {
-  
+
   DocumentSnapshot snapshot;
   ToursActivitiesDetails(this.snapshot);
 

@@ -18,6 +18,22 @@ class _LondonEatState extends State<LondonEat> {
     return snapshot.documents;
   }
 
+  //for popular restaurants
+  Future getPopularRestaurants()async{
+    var firestore = Firestore.instance;
+    QuerySnapshot snapshot = await firestore.collection("london_popular_restaurants").getDocuments();
+    return snapshot.documents;
+  }
+
+  Future getRefresh()async{
+    await Future.delayed(Duration(seconds: 3));
+    setState(() {
+      getPopularRestaurants();
+    });
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -41,6 +57,7 @@ class _LondonEatState extends State<LondonEat> {
           SliverFillRemaining(
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
 
                   Container(
@@ -83,23 +100,25 @@ class _LondonEatState extends State<LondonEat> {
                                           child: Container(
 
                                             child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment
+                                                  .start,
                                               children: <Widget>[
-                                                
+
                                                 Container(
                                                   height: 40.0,
                                                   width: 100.0,
                                                   decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.circular(10.0),
+                                                    borderRadius: BorderRadius
+                                                        .circular(10.0),
                                                     color: Color(0xFF37a000),
                                                   ),
                                                   child: Align(
                                                     alignment: Alignment.center,
                                                     child: Text("Offer",
-                                                    style: TextStyle(
-                                                      fontSize: 20.0,
-                                                      color: Colors.white
-                                                    ),
+                                                      style: TextStyle(
+                                                          fontSize: 20.0,
+                                                          color: Colors.white
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -259,6 +278,40 @@ class _LondonEatState extends State<LondonEat> {
                           }
                         }
                     ),
+                  ),//end first container
+
+                  SizedBox(height: 5.0,),
+
+                  Container(
+                    margin: EdgeInsets.only(left:10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+
+                        Container(
+                          child: Text("Popular Restaurants",
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.black
+                          ),
+                          ),
+                        ),
+
+                        SizedBox(height: 6.0,),
+
+                        Container(
+                          child: Column(
+                            children: <Widget>[
+
+
+                            ],
+                          ),
+                        )
+
+
+
+                      ],
+                    ),
                   ),
 
 
@@ -272,6 +325,44 @@ class _LondonEatState extends State<LondonEat> {
 
     );
   }
+
+  Widget popularRestaurants(BuildContext context){
+    return Container(
+      child: FutureBuilder(
+          future: getPopularRestaurants(),
+        builder: (BuildContext context,snapshot){
+
+            if(snapshot.connectionState == ConnectionState.waiting){
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }else{
+              return RefreshIndicator(
+                onRefresh: getRefresh,
+                child: ListView.builder(
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (BuildContext context,index){
+                    return Container(
+                      height: 250.0,
+                      child: Row(
+                        children: <Widget>[
+
+                          
+
+                        ],
+                      ),
+                    );
+                  }
+                ),
+              );
+            }
+
+        }
+      ),
+
+    );
+  }
+
 }
 
 
