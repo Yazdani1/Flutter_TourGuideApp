@@ -346,9 +346,7 @@ class _LondonEatState extends State<LondonEat> {
                       height: 250.0,
                       child: Row(
                         children: <Widget>[
-
                           
-
                         ],
                       ),
                     );
