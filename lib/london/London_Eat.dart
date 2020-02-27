@@ -24,7 +24,6 @@ class _LondonEatState extends State<LondonEat> {
     QuerySnapshot snapshot = await firestore.collection("london_popular_restaurants").getDocuments();
     return snapshot.documents;
   }
-
   Future getRefresh()async{
     await Future.delayed(Duration(seconds: 3));
     setState(() {
