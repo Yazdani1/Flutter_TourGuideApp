@@ -363,11 +363,10 @@ class _LondonEatState extends State<LondonEat> {
                             flex: 2,
                             child: Column(
                               children: <Widget>[
-                                
+
                               ],
                             ),
                           )
-
                         ],
                       ),
                     );
@@ -375,10 +374,8 @@ class _LondonEatState extends State<LondonEat> {
                 ),
               );
             }
-
         }
       ),
-
     );
   }
 
