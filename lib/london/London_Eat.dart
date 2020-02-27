@@ -31,9 +31,7 @@ class _LondonEatState extends State<LondonEat> {
       getPopularRestaurants();
     });
   }
-
-
-
+  
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -331,7 +329,6 @@ class _LondonEatState extends State<LondonEat> {
       child: FutureBuilder(
           future: getPopularRestaurants(),
         builder: (BuildContext context,snapshot){
-
             if(snapshot.connectionState == ConnectionState.waiting){
               return Center(
                 child: CircularProgressIndicator(),
