@@ -31,7 +31,7 @@ class _LondonEatState extends State<LondonEat> {
       getPopularRestaurants();
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -323,7 +323,6 @@ class _LondonEatState extends State<LondonEat> {
 
     );
   }
-
   Widget popularRestaurants(BuildContext context){
     return Container(
       child: FutureBuilder(
