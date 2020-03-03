@@ -385,12 +385,23 @@ class _LondonEatState extends State<LondonEat> {
 
                                   Container(
                                     padding: EdgeInsets.all(5.0),
-                                    child: Text(ourData.data['items']+"Items",
+                                    child: Text(ourData.data['items']+"items",
                                       maxLines: 2,
                                       style: TextStyle(
-                                          fontSize: 19.0,
+                                          fontSize: 17.0,
                                           color: Colors.black,
-                                          fontWeight: FontWeight.bold
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 5.0,),
+
+                                  Container(
+                                    padding: EdgeInsets.all(5.0),
+                                    child: Text(ourData.data['location'],
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                        fontSize: 17.0,
+                                        color: Colors.black,
                                       ),
                                     ),
                                   ),

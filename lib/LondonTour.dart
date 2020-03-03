@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'Home.dart';
 import 'package:flutter_tourapp/london/ToursActivities/ToursAct_DetailsPage.dart';
 import 'package:flutter_tourapp/london/London_Eat.dart';
+import 'package:flutter_tourapp/london/See.dart';
 
 class CityDetails extends StatefulWidget {
 
@@ -134,9 +135,14 @@ class _CityDetailsState extends State<CityDetails> {
                                       child: Icon(Icons.view_agenda),
                                     ),
                                     SizedBox(height: 10.0,),
-                                    Text("See",
-                                      style: TextStyle(
-                                          fontSize: 20.0
+                                    InkWell(
+                                      onTap: (){
+
+                                      },
+                                      child: Text("See",
+                                        style: TextStyle(
+                                            fontSize: 20.0
+                                        ),
                                       ),
                                     )
 
