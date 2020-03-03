@@ -279,6 +279,8 @@ class _LondonEatState extends State<LondonEat> {
 
                   SizedBox(height: 5.0,),
 
+                  //Start second container
+
                   Container(
                     margin: EdgeInsets.only(left:10.0),
                     child: Column(
@@ -294,13 +296,10 @@ class _LondonEatState extends State<LondonEat> {
                           ),
                         ),
 
-                        SizedBox(height: 6.0,),
-
                         Container(
                           child: Column(
                             children: <Widget>[
-
-
+                              popularRestaurants(context)
                             ],
                           ),
                         )
@@ -310,6 +309,9 @@ class _LondonEatState extends State<LondonEat> {
                       ],
                     ),
                   ),
+                  //end second container
+
+
 
 
                 ],
@@ -322,8 +324,11 @@ class _LondonEatState extends State<LondonEat> {
 
     );
   }
+
+
   Widget popularRestaurants(BuildContext context){
     return Container(
+      height: MediaQuery.of(context).size.height,
       child: FutureBuilder(
           future: getPopularRestaurants(),
         builder: (BuildContext context,snapshot){
@@ -338,31 +343,54 @@ class _LondonEatState extends State<LondonEat> {
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context,index){
                     var ourData = snapshot.data[index];
-                    return Container(
-                      height: 250.0,
-                      child: Row(
-                        children: <Widget>[
+                    return Card(
+                      elevation: 10.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)
+                      ),
+                      child: Container(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
 
-                          Expanded(
-                            flex: 1,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: Image.network(ourData.data['img'],
-                              height: 250.0,
-                                fit: BoxFit.cover,
+                            Expanded(
+                              flex: 1,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                child: Image.network(ourData.data['img'],
+                                height: 150.0,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(width: 5.0,),
-                          Expanded(
-                            flex: 2,
-                            child: Column(
-                              children: <Widget>[
+                            SizedBox(width: 5.0,),
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
 
-                              ],
-                            ),
-                          )
-                        ],
+                                  Container(
+                                    padding: EdgeInsets.all(5.0),
+                                    child: Text(ourData.data['name'],
+                                    maxLines: 2,
+                                      style: TextStyle(
+                                        fontSize: 19.0,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 5.0,),
+
+
+
+
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   }
