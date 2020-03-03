@@ -137,7 +137,7 @@ class _CityDetailsState extends State<CityDetails> {
                                     SizedBox(height: 10.0,),
                                     InkWell(
                                       onTap: (){
-
+                                        Navigator.of(context).push(routSee());
                                       },
                                       child: Text("See",
                                         style: TextStyle(
@@ -270,6 +270,26 @@ class _CityDetailsState extends State<CityDetails> {
   Route _createRoute() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => Home(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+//        var begin = Offset(0.0, 1.0);
+//        var end = Offset.zero;
+//        var curve = Curves.ease;
+
+        //var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(-1, 0),
+            end: Offset.zero,
+          ).animate(animation),
+          child: child,
+        );
+      },
+    );
+  }
+
+  Route routSee() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => See(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
 //        var begin = Offset(0.0, 1.0);
 //        var end = Offset.zero;

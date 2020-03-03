@@ -9,9 +9,7 @@ class _SeeState extends State<See> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-
-
-
+      
 
     );
   }
