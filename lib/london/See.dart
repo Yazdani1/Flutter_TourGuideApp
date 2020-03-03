@@ -19,10 +19,11 @@ class _SeeState extends State<See> {
     await Future.delayed(Duration(seconds: 3));
     setState(() {
       getPlaces();
+
+      dispose();
     });
+
   }
-  final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
-  final double itemWidth = size.width / 2;
 
   @override
   Widget build(BuildContext context) {
@@ -43,39 +44,54 @@ class _SeeState extends State<See> {
             } else {
               return RefreshIndicator(
                 onRefresh: getRefresh,
-                child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2),
+                child: ListView.builder(
                     itemCount: snapshot.data.length,
-                    childAspectRatio: (itemWidth / itemHeight),
                     itemBuilder: (BuildContext c, index) {
                       var ourData = snapshot.data[index];
                       return Container(
+                        height: 350.0,
+                        margin: EdgeInsets.all(5.0),
                         child: Card(
                           elevation: 10.0,
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
 
                               Container(
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.network(ourData.data['img'],
-                                    height: 100.0,
+                                      height: 250.0,
+                                      width: MediaQuery.of(context).size.width,
                                       fit: BoxFit.cover,
                                     ),
                                 ),
                               ),
                               SizedBox(height: 5,),
-                              Container(
-                                padding: EdgeInsets.all(6.0),
+
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
                                 child: Text(ourData.data['name'],
                                 style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20.0,
                                   color: Colors.black,
-                                  fontSize: 20.0
+                                  fontWeight: FontWeight.bold
                                 ),
                                 ),
-                              )
+                              ),
+                              SizedBox(height: 5,),
+
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(ourData.data['address'],
+                                  style: TextStyle(
+                                      fontSize: 17.0,
+                                      color: Colors.deepPurple,
+
+                                  ),
+                                ),
+                              ),
+
 
                             ],
                           ),

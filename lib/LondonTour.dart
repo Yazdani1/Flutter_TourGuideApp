@@ -4,6 +4,7 @@ import 'Home.dart';
 import 'package:flutter_tourapp/london/ToursActivities/ToursAct_DetailsPage.dart';
 import 'package:flutter_tourapp/london/London_Eat.dart';
 import 'package:flutter_tourapp/london/See.dart';
+import 'package:flutter_tourapp/london/Sleep.dart';
 
 class CityDetails extends StatefulWidget {
 
@@ -150,29 +151,34 @@ class _CityDetailsState extends State<CityDetails> {
                                 ),
                               ),
 
-                              Container(
-                                margin: EdgeInsets.all(10.0),
-                                child: Column(
-                                  children: <Widget>[
+                              InkWell(
+                                onTap: (){
+                                  Navigator.of(context).push(routSleep());
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.all(10.0),
+                                  child: Column(
+                                    children: <Widget>[
 
-                                    Container(
-                                      height: 60.0,
-                                      width: 80.0,
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                              10.0),
-                                          color: Colors.red
+                                      Container(
+                                        height: 60.0,
+                                        width: 80.0,
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                                10.0),
+                                            color: Colors.red
+                                        ),
+                                        child: Icon(Icons.home),
                                       ),
-                                      child: Icon(Icons.home),
-                                    ),
-                                    SizedBox(height: 10.0,),
-                                    Text("Sleep",
-                                      style: TextStyle(
-                                          fontSize: 20.0
-                                      ),
-                                    )
+                                      SizedBox(height: 10.0,),
+                                      Text("Sleep",
+                                        style: TextStyle(
+                                            fontSize: 20.0
+                                        ),
+                                      )
 
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                               Container(
@@ -290,6 +296,26 @@ class _CityDetailsState extends State<CityDetails> {
   Route routSee() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => See(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+//        var begin = Offset(0.0, 1.0);
+//        var end = Offset.zero;
+//        var curve = Curves.ease;
+
+        //var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(-1, 0),
+            end: Offset.zero,
+          ).animate(animation),
+          child: child,
+        );
+      },
+    );
+  }
+
+  Route routSleep() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => Sleep(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
 //        var begin = Offset(0.0, 1.0);
 //        var end = Offset.zero;
