@@ -19,7 +19,6 @@ class _SleepState extends State<Sleep> {
     await Future.delayed(Duration(seconds: 3));
     setState(() {
       getHotelList();
-      dispose();
     });
   }
   @override
@@ -44,9 +43,13 @@ class _SleepState extends State<Sleep> {
                     itemBuilder: (BuildContext context, index) {
                       var ourData=snapshot.data[index];
                       return Container(
-                        height: 250.0,
+                        height: 200.0,
+                        margin: EdgeInsets.all(10.0),
                         child: Card(
                           elevation: 10,
+                          shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0)
+                          ),
                           child: Row(
                             children: <Widget>[
                               Expanded(
@@ -54,11 +57,72 @@ class _SleepState extends State<Sleep> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10.0),
                                   child: Image.network(ourData.data['img'],
-                                  height: 250.0,
+                                  height: 200.0,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
+                              ),
+
+                              Expanded(
+                                flex: 2,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+
+                                    Container(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(ourData.data['title'],
+                                        maxLines: 2,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20.0,
+                                            color: Colors.black
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    SizedBox(height: 5.0,),
+
+                                    Container(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(ourData.data['star'],
+                                        maxLines: 1,
+                                          style: TextStyle(
+                                            fontSize: 18.0,
+                                            color: Colors.black
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    
+                                    Container(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(ourData.data['location'],
+                                        maxLines: 1,
+                                          style: TextStyle(
+                                            color: Colors.black
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    
+                                    Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10.0),
+                                        color: Color(0xFF71276f)
+                                      ),
+                                    )
+                                    
+
+                                  ],
+                                ),
                               )
+
                             ],
                           ),
                         ),
