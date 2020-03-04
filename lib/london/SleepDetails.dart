@@ -20,9 +20,36 @@ class _SleepDetailsState extends State<SleepDetails> {
   Widget build(BuildContext context) {
     return new Scaffold(
 
-      appBar: AppBar(
-        title: Text(widget.snapshot.data['star']),
-        backgroundColor: Colors.deepOrange,
+
+      body: CustomScrollView(
+        slivers: <Widget>[
+
+          SliverAppBar(
+            expandedHeight: 250.0,
+            floating: false,
+            pinned: true,
+            backgroundColor: Color(0xFF71276f),
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(widget.snapshot.data['star']+" Hotel"),
+              background: Image.network(widget.snapshot.data['img'],
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+
+          SliverFillRemaining(
+            child: SingleChildScrollView(
+              
+            ),
+          ),
+
+
+        ],
+
       ),
 
     );
