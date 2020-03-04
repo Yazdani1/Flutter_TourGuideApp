@@ -29,7 +29,6 @@ class _SleepState extends State<Sleep> {
         title: Text("The Best Hotel List"),
         backgroundColor: Colors.red,
       ),
-
       body: FutureBuilder(
           future: getHotelList(),
           builder: (BuildContext context, snapshot) {
@@ -50,7 +49,6 @@ class _SleepState extends State<Sleep> {
                           elevation: 10,
                           child: Row(
                             children: <Widget>[
-
                               Expanded(
                                 flex: 1,
                                 child: ClipRRect(
@@ -71,7 +69,6 @@ class _SleepState extends State<Sleep> {
             }
           }
       ),
-
     );
   }
 }
