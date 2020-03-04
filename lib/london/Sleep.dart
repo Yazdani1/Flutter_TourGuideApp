@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'SleepDetails.dart';
 
 
 class Sleep extends StatefulWidget {
@@ -144,30 +145,32 @@ class _SleepState extends State<Sleep> {
 
                                     SizedBox(height: 10.0,),
 
-                                    Container(
-                                      margin: EdgeInsets.only(left: 10.0),
-                                      height: 60.0,
-                                      width: 150.0,
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                              10.0),
-                                          color: Color(0xFF71276f)
-                                      ),
-                                      child: Center(
-                                        child: Text("View details",
-                                        style: TextStyle(
-                                          fontSize: 18.0,
-                                          color: Colors.white
+                                    InkWell(
+                                      onTap: (){
+                                        Navigator.of(context).push(routSee(context,ourData));
+                                      },
+                                      child: Container(
+                                        margin: EdgeInsets.only(left: 10.0),
+                                        height: 60.0,
+                                        width: 150.0,
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                                10.0),
+                                            color: Color(0xFF71276f)
                                         ),
+                                        child: Center(
+                                          child: Text("View details",
+                                          style: TextStyle(
+                                            fontSize: 18.0,
+                                            color: Colors.white
+                                          ),
+                                          ),
                                         ),
                                       ),
                                     )
-
-
                                   ],
                                 ),
                               )
-
                             ],
                           ),
                         ),
@@ -180,6 +183,27 @@ class _SleepState extends State<Sleep> {
       ),
     );
   }
+
+  Route routSee(BuildContext context, DocumentSnapshot data) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => SleepDetails(data),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+//        var begin = Offset(0.0, 1.0);
+//        var end = Offset.zero;
+//        var curve = Curves.ease;
+
+        //var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(-1, 0),
+            end: Offset.zero,
+          ).animate(animation),
+          child: child,
+        );
+      },
+    );
+  }
+
 }
 
 
