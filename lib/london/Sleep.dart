@@ -15,12 +15,14 @@ class _SleepState extends State<Sleep> {
         .getDocuments();
     return snapshot.documents;
   }
+
   Future getRefresh() async {
     await Future.delayed(Duration(seconds: 3));
     setState(() {
       getHotelList();
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -41,14 +43,14 @@ class _SleepState extends State<Sleep> {
                 child: ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, index) {
-                      var ourData=snapshot.data[index];
+                      var ourData = snapshot.data[index];
                       return Container(
-                        height: 200.0,
+                        height: 230.0,
                         margin: EdgeInsets.all(10.0),
                         child: Card(
                           elevation: 10,
                           shape: BeveledRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0)
+                              borderRadius: BorderRadius.circular(20.0)
                           ),
                           child: Row(
                             children: <Widget>[
@@ -57,7 +59,7 @@ class _SleepState extends State<Sleep> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10.0),
                                   child: Image.network(ourData.data['img'],
-                                  height: 200.0,
+                                    height: 230.0,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -73,51 +75,94 @@ class _SleepState extends State<Sleep> {
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(ourData.data['title'],
-                                        maxLines: 2,
+                                          maxLines: 2,
                                           style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20.0,
-                                            color: Colors.black
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20.0,
+                                              color: Colors.black
                                           ),
                                         ),
                                       ),
                                     ),
-
-                                    SizedBox(height: 5.0,),
-
                                     Container(
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(ourData.data['star'],
-                                        maxLines: 1,
+                                          maxLines: 1,
                                           style: TextStyle(
-                                            fontSize: 18.0,
-                                            color: Colors.black
+                                              fontSize: 18.0,
+                                              color: Colors.black
                                           ),
                                         ),
                                       ),
                                     ),
-                                    
+
                                     Container(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(ourData.data['location'],
-                                        maxLines: 1,
-                                          style: TextStyle(
-                                            color: Colors.black
+                                      child: Row(
+                                        children: <Widget>[
+
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(
+                                                    8.0),
+                                                child: Text(
+                                                  ourData.data['location'],
+                                                  maxLines: 1,
+                                                  style: TextStyle(
+                                                      color: Colors.black
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                           ),
-                                        ),
+
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(
+                                                    8.0),
+                                                child: Text(
+                                                  "\$" + ourData.data['price'],
+                                                  maxLines: 1,
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 20.0,
+                                                    fontWeight: FontWeight.bold
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+
+
+                                        ],
                                       ),
                                     ),
-                                    
+
+                                    SizedBox(height: 10.0,),
+
                                     Container(
-                                      padding: EdgeInsets.all(8.0),
+                                      margin: EdgeInsets.only(left: 10.0),
+                                      height: 60.0,
+                                      width: 150.0,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10.0),
-                                        color: Color(0xFF71276f)
+                                          borderRadius: BorderRadius.circular(
+                                              10.0),
+                                          color: Color(0xFF71276f)
+                                      ),
+                                      child: Center(
+                                        child: Text("View details",
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          color: Colors.white
+                                        ),
+                                        ),
                                       ),
                                     )
-                                    
+
 
                                   ],
                                 ),
