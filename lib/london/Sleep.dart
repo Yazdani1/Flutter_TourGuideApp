@@ -15,7 +15,6 @@ class _SleepState extends State<Sleep> {
         .getDocuments();
     return snapshot.documents;
   }
-
   Future getRefresh() async {
     await Future.delayed(Duration(seconds: 3));
     setState(() {
@@ -23,11 +22,9 @@ class _SleepState extends State<Sleep> {
       dispose();
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-
       appBar: AppBar(
         title: Text("The Best Hotel List"),
         backgroundColor: Colors.red,
@@ -64,7 +61,6 @@ class _SleepState extends State<Sleep> {
                                   ),
                                 ),
                               )
-
                             ],
                           ),
                         ),
