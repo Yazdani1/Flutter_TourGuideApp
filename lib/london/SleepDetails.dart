@@ -160,6 +160,24 @@ class _SleepDetailsState extends State<SleepDetails> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
 
+                  Container(
+                    child: Text("Price for each night:",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold
+                    ),
+                    ),
+                  ),
+                  Container(
+                    child: Text("\$"+widget.snapshot.data['price']+"\+5\%VAT",
+                      style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ),
 
                 ],
               ),
