@@ -91,6 +91,18 @@ class _SleepDetailsState extends State<SleepDetails> {
                         ),
                       ),
 
+                      Container(
+                        padding: EdgeInsets.all(10.0),
+                        child: Text(widget.snapshot.data['des'],
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+
+
+
                       
                       
                     ],
@@ -123,7 +135,15 @@ class _SleepDetailsState extends State<SleepDetails> {
 
   Widget _panel_Doctorlist(){
     return Container(
-      color: Colors.black,
+
+      child: Column(
+        children: <Widget>[
+
+          
+
+        ],
+      ),
+
     );
   }
 
