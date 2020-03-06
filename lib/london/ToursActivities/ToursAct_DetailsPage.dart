@@ -96,7 +96,6 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
 
     );
   }
-
   shoCuportionDialog(BuildContext context){
 
     showCupertinoModalPopup(
@@ -133,7 +132,6 @@ class _ToursActivitiesDetailsState extends State<ToursActivitiesDetails> {
     );
 
   }
-
 }
 
 
