@@ -16,7 +16,6 @@ class _SleepState extends State<Sleep> {
         .getDocuments();
     return snapshot.documents;
   }
-
   Future getRefresh() async {
     await Future.delayed(Duration(seconds: 3));
     setState(() {
