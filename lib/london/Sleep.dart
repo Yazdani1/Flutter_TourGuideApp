@@ -63,7 +63,6 @@ class _SleepState extends State<Sleep> {
                                   ),
                                 ),
                               ),
-
                               Expanded(
                                 flex: 2,
                                 child: Column(
