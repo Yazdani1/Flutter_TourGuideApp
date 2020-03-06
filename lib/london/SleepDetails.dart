@@ -88,7 +88,6 @@ class _SleepDetailsState extends State<SleepDetails> {
                           ),
                         ),
                       ),
-
                       Container(
                         padding: EdgeInsets.all(10.0),
                         child: Text(widget.snapshot.data['des'],
