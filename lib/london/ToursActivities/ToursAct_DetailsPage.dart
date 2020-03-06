@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 class ToursActivitiesDetails extends StatefulWidget {
   DocumentSnapshot snapshot;
   ToursActivitiesDetails(this.snapshot);
-
   @override
   _ToursActivitiesDetailsState createState() =>
       new _ToursActivitiesDetailsState();
