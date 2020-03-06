@@ -369,7 +369,6 @@ class _LondonEatState extends State<LondonEat> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-
                                   Container(
                                     padding: EdgeInsets.all(5.0),
                                     child: Text(ourData.data['name'],
@@ -382,7 +381,6 @@ class _LondonEatState extends State<LondonEat> {
                                     ),
                                   ),
                                   SizedBox(height: 5.0,),
-
                                   Container(
                                     padding: EdgeInsets.all(5.0),
                                     child: Text(ourData.data['items']+"items",
