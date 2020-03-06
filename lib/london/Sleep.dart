@@ -23,7 +23,6 @@ class _SleepState extends State<Sleep> {
       getHotelList();
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
