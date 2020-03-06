@@ -295,7 +295,6 @@ class _LondonEatState extends State<LondonEat> {
                           ),
                           ),
                         ),
-
                         Container(
                           child: Column(
                             children: <Widget>[
@@ -303,17 +302,10 @@ class _LondonEatState extends State<LondonEat> {
                             ],
                           ),
                         )
-
-
-
                       ],
                     ),
                   ),
                   //end second container
-
-
-
-
                 ],
               ),
             ),
@@ -324,8 +316,6 @@ class _LondonEatState extends State<LondonEat> {
 
     );
   }
-
-
   Widget popularRestaurants(BuildContext context){
     return Container(
       height: MediaQuery.of(context).size.height,
