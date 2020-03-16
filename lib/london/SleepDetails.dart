@@ -68,7 +68,9 @@ class _SleepDetailsState extends State<SleepDetails> {
                           ),
                         ),
                       ),
+
                       SizedBox(height: 10.0,),
+                      
                       Container(
                         padding: EdgeInsets.all(10.0),
                         child: Text(widget.snapshot.data['location'],
