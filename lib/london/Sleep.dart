@@ -68,7 +68,6 @@ class _SleepState extends State<Sleep> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-
                                     Container(
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -82,6 +81,7 @@ class _SleepState extends State<Sleep> {
                                         ),
                                       ),
                                     ),
+
                                     Container(
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -94,7 +94,6 @@ class _SleepState extends State<Sleep> {
                                         ),
                                       ),
                                     ),
-
                                     Container(
                                       child: Row(
                                         children: <Widget>[
