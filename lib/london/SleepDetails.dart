@@ -6,15 +6,12 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 class SleepDetails extends StatefulWidget {
 
   DocumentSnapshot snapshot;
-
   SleepDetails(this.snapshot);
-
   @override
   _SleepDetailsState createState() => new _SleepDetailsState();
 }
 
 class _SleepDetailsState extends State<SleepDetails> {
-
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +19,10 @@ class _SleepDetailsState extends State<SleepDetails> {
 
 
       body: SlidingUpPanel(
-
         panel: _panel_Doctorlist(),
         parallaxEnabled: true,
         parallaxOffset: .5,
         collapsed: _floatingCollapsed(),
-
         body: CustomScrollView(
           slivers: <Widget>[
 
