@@ -43,6 +43,7 @@ class _SleepDetailsState extends State<SleepDetails> {
                 ),
               ),
             ),
+            
             SliverFillRemaining(
               child: SingleChildScrollView(
                 child: Card(
