@@ -101,8 +101,6 @@ class _SleepDetailsState extends State<SleepDetails> {
                     ],
                   ),
                 ),
-
-
               ),
             ),
           ],
