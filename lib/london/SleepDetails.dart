@@ -57,7 +57,6 @@ class _SleepDetailsState extends State<SleepDetails> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-
                       Container(
                         padding: EdgeInsets.all(10.0),
                         child: Text(widget.snapshot.data['title'],
@@ -68,6 +67,7 @@ class _SleepDetailsState extends State<SleepDetails> {
                           ),
                         ),
                       ),
+
                       SizedBox(height: 10.0,),
                       Container(
                         padding: EdgeInsets.all(10.0),
@@ -78,6 +78,7 @@ class _SleepDetailsState extends State<SleepDetails> {
                           ),
                         ),
                       ),
+
                       Container(
                         padding: EdgeInsets.all(10.0),
                         child: Text("\$" + widget.snapshot.data['price'],
@@ -87,6 +88,7 @@ class _SleepDetailsState extends State<SleepDetails> {
                           ),
                         ),
                       ),
+
                       Container(
                         padding: EdgeInsets.all(10.0),
                         child: Text(widget.snapshot.data['des'],
