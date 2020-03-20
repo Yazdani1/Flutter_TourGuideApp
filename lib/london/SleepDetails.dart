@@ -7,6 +7,7 @@ class SleepDetails extends StatefulWidget {
 
   DocumentSnapshot snapshot;
   SleepDetails(this.snapshot);
+
   @override
   _SleepDetailsState createState() => new _SleepDetailsState();
 }
@@ -45,7 +46,6 @@ class _SleepDetailsState extends State<SleepDetails> {
 
             SliverFillRemaining(
               child: SingleChildScrollView(
-
                 child: Card(
                   margin: EdgeInsets.all(10.0),
                   elevation: 10.0,
