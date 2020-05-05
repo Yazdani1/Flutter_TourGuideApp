@@ -1,16 +1,12 @@
-# flutter_tourapp
-
-A new Flutter application.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+![pic3](https://user-images.githubusercontent.com/20543298/81094968-20338d00-8f26-11ea-978e-c1d6cede2b7d.PNG)
+![pic4](https://user-images.githubusercontent.com/20543298/81094976-2295e700-8f26-11ea-8831-4cf2de94bde4.PNG)
+![pic5](https://user-images.githubusercontent.com/20543298/81094987-26c20480-8f26-11ea-86d5-0d321e8d5c42.PNG)
+![pic6](https://user-images.githubusercontent.com/20543298/81094998-2b86b880-8f26-11ea-8ff3-a62e66ad53f3.PNG)
+![pic7](https://user-images.githubusercontent.com/20543298/81095005-2fb2d600-8f26-11ea-9f98-2affb21d8f74.PNG)
+![pic8](https://user-images.githubusercontent.com/20543298/81095017-34778a00-8f26-11ea-9736-0bf60fbfd09f.PNG)
+![pic9](https://user-images.githubusercontent.com/20543298/81095041-3b9e9800-8f26-11ea-9a91-dec1cc172bb7.PNG)
+![pic10](https://user-images.githubusercontent.com/20543298/81095049-3e998880-8f26-11ea-83ac-0f6d80eaa269.PNG)
+![pic11](https://user-images.githubusercontent.com/20543298/81095052-40fbe280-8f26-11ea-973d-4e5e80e008d4.PNG)
+![pic12](https://user-images.githubusercontent.com/20543298/81095056-435e3c80-8f26-11ea-850f-5382bd482dd4.PNG)
+![pic1](https://user-images.githubusercontent.com/20543298/81095059-45280000-8f26-11ea-923b-d5f081900811.PNG)
+![pic2](https://user-images.githubusercontent.com/20543298/81095064-46f1c380-8f26-11ea-9c4b-228b6168d35d.PNG)
