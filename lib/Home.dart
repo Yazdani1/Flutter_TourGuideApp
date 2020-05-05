@@ -19,8 +19,7 @@ class _HomeState extends State<Home> {
   String img5 = "https://images.pexels.com/photos/1736222/pexels-photo-1736222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
   String img6 = "https://images.pexels.com/photos/1007657/pexels-photo-1007657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
   String img7 = "https://images.pexels.com/photos/2589011/pexels-photo-2589011.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-
-
+  
   Future gettPlaces() async {
     var firestore = Firestore.instance;
     QuerySnapshot snapshot = await firestore.collection("country_name_place")
@@ -45,10 +44,7 @@ class _HomeState extends State<Home> {
   List<MaterialColor>_color = [Colors.orange, Colors.blue, Colors.purple, Colors
       .pink, Colors.amber, Colors.red, Colors.green, Colors.brown
   ];
-
   MaterialColor color;
-
-
 //  Future getAllpost() async {
 //    var firestore = Firestore.instance;
 //    QuerySnapshot snapshot = await firestore.collection("item").getDocuments();
@@ -142,7 +138,6 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-
 //      appBar: AppBar(
 //        title: Text("Tourist App"),
 //        backgroundColor: Colors.deepOrange,
@@ -234,7 +229,6 @@ class _HomeState extends State<Home> {
 //      ),
     );
   }
-
 //  shoCuportionDialog(BuildContext context) {
 //    showCupertinoModalPopup(
 //        context: context,
