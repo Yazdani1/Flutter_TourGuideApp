@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
   String img5 = "https://images.pexels.com/photos/1736222/pexels-photo-1736222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
   String img6 = "https://images.pexels.com/photos/1007657/pexels-photo-1007657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
   String img7 = "https://images.pexels.com/photos/2589011/pexels-photo-2589011.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-  
+
   Future gettPlaces() async {
     var firestore = Firestore.instance;
     QuerySnapshot snapshot = await firestore.collection("country_name_place")
